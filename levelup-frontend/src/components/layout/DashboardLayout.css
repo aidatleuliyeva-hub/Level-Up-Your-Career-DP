@@ -1,0 +1,54 @@
+/* ===== DASHBOARD ROOT ===== */
+
+.dash-root {
+  display: flex;
+  min-height: 100vh;
+  background: radial-gradient(circle at 0% 0%, rgba(79, 70, 229, 0.18), transparent 60%),
+    linear-gradient(145deg, rgba(15, 23, 42, 0.97), rgba(15, 23, 42, 0.96));
+  color: #e2e8f0;
+  overflow: hidden;
+}
+
+/* ===== MAIN AREA ===== */
+
+.dash-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.dash-content {
+  flex: 1;
+  padding: 18px 22px 28px;
+  overflow-y: auto;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Анимация появления страниц */
+
+@keyframes pageFade {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.dash-content > * {
+  animation: pageFade 0.22s ease;
+}
+
+/* ====== ADAPTIVE ====== */
+
+@media (max-width: 900px) {
+  .dash-root {
+    flex-direction: column;
+  }
+}

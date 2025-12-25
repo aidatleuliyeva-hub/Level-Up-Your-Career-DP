@@ -1,0 +1,312 @@
+/* F:\gopro\levelup-frontend\src\pages\AuthPage.css */
+
+/* === LAYOUT & BACKGROUND === */
+
+.auth-page {
+  position: relative;
+  min-height: 100vh;
+  padding: 32px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 0 0, rgba(79, 70, 229, 0.35), transparent 55%),
+    radial-gradient(circle at 100% 100%, rgba(14, 165, 233, 0.3), transparent 55%),
+    linear-gradient(145deg, #050816, #020617);
+}
+
+/* мягкие «орбиты» на фоне */
+.auth-orbit {
+  position: absolute;
+  width: 520px;
+  height: 520px;
+  border-radius: 50%;
+  filter: blur(40px);
+  opacity: 0.3;
+  mix-blend-mode: screen;
+  pointer-events: none;
+}
+
+.auth-orbit-left {
+  background: radial-gradient(circle, rgba(79, 70, 229, 0.7), transparent 70%);
+  top: -120px;
+  left: -140px;
+}
+
+.auth-orbit-right {
+  background: radial-gradient(circle, rgba(14, 165, 233, 0.7), transparent 70%);
+  bottom: -140px;
+  right: -160px;
+}
+
+/* === CARD === */
+
+.auth-card {
+  position: relative;
+  width: 100%;
+  max-width: 520px;
+  border-radius: 24px;
+  padding: 22px 22px 18px;
+  background:
+    linear-gradient(135deg, rgba(15, 23, 42, 0.98), rgba(15, 23, 42, 0.96));
+  border: 1px solid rgba(148, 163, 184, 0.55);
+  box-shadow: 0 22px 60px rgba(15, 23, 42, 0.95);
+  backdrop-filter: blur(18px);
+  color: var(--text-main);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* лёгкий внутренний свет по периметру */
+.auth-card::before {
+  content: "";
+  position: absolute;
+  inset: 1px;
+  border-radius: inherit;
+  background:
+    radial-gradient(circle at 0 0, rgba(79, 70, 229, 0.28), transparent 60%),
+    radial-gradient(circle at 100% 100%, rgba(14, 165, 233, 0.2), transparent 60%);
+  opacity: 0.5;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* === HEADER === */
+
+.auth-card-header {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* логотип */
+.auth-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo-circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 16px;
+  background: radial-gradient(
+    circle at 20% 0%,
+    #a855f7 0,
+    #4f46e5 40%,
+    #0ea5e9 100%
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 18px;
+  color: #f9fafb;
+  box-shadow: 0 14px 30px rgba(79, 70, 229, 0.8);
+}
+
+.logo-text {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.logo-title {
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.logo-subtitle {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.auth-tagline {
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--text-soft);
+  padding: 8px 10px;
+  border-radius: 14px;
+  background: rgba(15, 23, 42, 0.92);
+  border: 1px solid rgba(148, 163, 184, 0.35);
+}
+
+/* === BODY === */
+
+.auth-card-body {
+  padding-top: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* табы вход / регистрация */
+
+.auth-tabs {
+  display: inline-flex;
+  align-self: flex-start;
+  padding: 4px;
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.96);
+  border: 1px solid rgba(148, 163, 184, 0.55);
+  gap: 2px;
+}
+
+.auth-tab {
+  border: none;
+  background: transparent;
+  color: var(--text-muted);
+  font-size: 13px;
+  padding: 6px 16px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition:
+    background 0.15s ease,
+    color 0.15s ease,
+    box-shadow 0.15s ease,
+    transform 0.12s ease;
+}
+
+.auth-tab:hover {
+  color: #e5e7eb;
+  background: rgba(15, 23, 42, 0.9);
+}
+
+.auth-tab-active {
+  background: linear-gradient(135deg, #4f46e5, #6366f1);
+  color: #eef2ff;
+  box-shadow: 0 10px 24px rgba(79, 70, 229, 0.9);
+  transform: translateY(-1px);
+}
+
+/* форма */
+
+.auth-form {
+  padding-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* две колонки на десктопе, одна на мобиле */
+.auth-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.auth-card .form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.auth-card .form-group label {
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+.auth-card .form-group input,
+.auth-card .form-group select {
+  border-radius: 10px;
+  border: 1px solid rgba(148, 163, 184, 0.6);
+  background: rgba(15, 23, 42, 0.98);
+  padding: 8px 10px;
+  font-size: 13px;
+  color: var(--text-main);
+  outline: none;
+  transition:
+    border-color 0.16s ease,
+    box-shadow 0.16s ease,
+    background 0.16s ease,
+    transform 0.08s ease;
+}
+
+.auth-card .form-group input:focus,
+.auth-card .form-group select:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 1px rgba(79, 70, 229, 0.75);
+  background: #020617;
+  transform: translateY(-0.5px);
+}
+
+/* алерты под формой — используем глобальные классы, только чуть ужимаем */
+
+.auth-card .alert {
+  margin-top: 2px;
+}
+
+/* кнопка сабмита */
+
+.auth-submit-btn {
+  width: 100%;
+  margin-top: 4px;
+  padding-block: 9px;
+  font-size: 13px;
+}
+
+/* === FOOTER === */
+
+.auth-card-footer {
+  margin-top: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.auth-footer-note {
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+.auth-footer-note code {
+  background: rgba(15, 23, 42, 0.9);
+  border-radius: 6px;
+  padding: 2px 5px;
+  border: 1px solid rgba(148, 163, 184, 0.4);
+}
+
+.auth-footer-meta {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: rgba(148, 163, 184, 0.85);
+}
+
+/* === ADAPTIVE === */
+
+@media (max-width: 640px) {
+  .auth-page {
+    padding: 20px 12px;
+  }
+
+  .auth-card {
+    padding: 18px 16px 14px;
+    border-radius: 20px;
+  }
+
+  .auth-form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .auth-tabs {
+    align-self: stretch;
+    justify-content: space-between;
+  }
+
+  .auth-tab {
+    flex: 1;
+    text-align: center;
+  }
+
+  .logo-title {
+    font-size: 16px;
+  }
+
+  .auth-tagline {
+    font-size: 11px;
+  }
+}
