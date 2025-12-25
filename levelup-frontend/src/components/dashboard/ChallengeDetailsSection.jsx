@@ -35,7 +35,7 @@ export default function ChallengeDetailsSection({
   reviewError,
   reviewSuccess,
   handleReviewSubmit,
-  closeReview, // НОВОЕ: закрытие модалки ревью
+  closeReview, // :   
 }) {
   const isReviewer =
     userRole === "teacher" || userRole === "company" || userRole === "admin";
@@ -44,23 +44,23 @@ export default function ChallengeDetailsSection({
     <section className="content-section">
       <div className="content-header">
         <div>
-          <h1>Челлендж</h1>
+          <h1></h1>
         </div>
       </div>
 
       <button className="btn btn-ghost" onClick={goBackToOverview}>
-        ← Назад к списку
+        ← Back  
       </button>
 
       {detailsLoading && (
         <div className="ch-empty" style={{ marginTop: 10 }}>
-          Загружаем детали челленджа...
+            ...
         </div>
       )}
 
       {detailsError && (
         <div className="alert alert-error" style={{ marginTop: 10 }}>
-          Ошибка: {detailsError}
+          Error: {detailsError}
         </div>
       )}
 
@@ -72,22 +72,22 @@ export default function ChallengeDetailsSection({
           <div className="ch-meta" style={{ marginTop: 8 }}>
             {selectedChallenge.challenge_type && (
               <span className="ch-pill">
-                Тип: {selectedChallenge.challenge_type}
+                : {selectedChallenge.challenge_type}
               </span>
             )}
             {selectedChallenge.difficulty && (
               <span className="ch-pill">
-                Сложность: {selectedChallenge.difficulty}
+                Difficulty: {selectedChallenge.difficulty}
               </span>
             )}
             {selectedChallenge.reward_credits != null && (
               <span className="ch-pill">
-                Кредиты: {selectedChallenge.reward_credits}
+                Credits: {selectedChallenge.reward_credits}
               </span>
             )}
             {selectedChallenge.reward_amount != null && (
               <span className="ch-pill">
-                Вознаграждение: {selectedChallenge.reward_amount} €
+                Reward: {selectedChallenge.reward_amount} €
               </span>
             )}
           </div>
@@ -95,7 +95,7 @@ export default function ChallengeDetailsSection({
           {isStudent && (
             <div style={{ marginTop: 14 }}>
               {startError && (
-                <div className="alert alert-error">Ошибка: {startError}</div>
+                <div className="alert alert-error">Error: {startError}</div>
               )}
 
               {!hasAttempt && (
@@ -104,7 +104,7 @@ export default function ChallengeDetailsSection({
                   onClick={handleStartChallenge}
                   style={{ marginBottom: 10 }}
                 >
-                  Начать участие
+                   
                 </button>
               )}
 
@@ -120,13 +120,13 @@ export default function ChallengeDetailsSection({
                       border: "1px solid rgba(34,197,94,0.6)",
                     }}
                   >
-                    Вы участвуете в этом челлендже. Ниже можно отправить своё
-                    решение.
+                        .    
+                    .
                   </div>
 
                   <form className="auth-form" onSubmit={handleSubmitSolution}>
                     <div className="form-group">
-                      <label>Текстовое решение (опционально)</label>
+                      <label>  ()</label>
                       <textarea
                         rows={4}
                         value={submissionText}
@@ -145,7 +145,7 @@ export default function ChallengeDetailsSection({
                     </div>
 
                     <div className="form-group">
-                      <label>Ссылка на репозиторий / файл (опционально)</label>
+                      <label>   /  ()</label>
                       <input
                         type="text"
                         value={submissionLink}
@@ -155,7 +155,7 @@ export default function ChallengeDetailsSection({
 
                     {submitError && (
                       <div className="alert alert-error">
-                        Ошибка: {submitError}
+                        Error: {submitError}
                       </div>
                     )}
 
@@ -177,7 +177,7 @@ export default function ChallengeDetailsSection({
                       className="btn btn-primary"
                       disabled={submitLoading}
                     >
-                      {submitLoading ? "Отправляем..." : "Отправить решение"}
+                      {submitLoading ? "Submitting..." : "Submit solution"}
                     </button>
                   </form>
                 </>
@@ -193,9 +193,9 @@ export default function ChallengeDetailsSection({
                     border: "1px solid rgba(59,130,246,0.6)",
                   }}
                 >
-                  Вы уже отправили решение. Статус:{" "}
-                  <strong>submitted</strong>. Ожидайте проверки преподавателем
-                  или компанией.
+                     . :{" "}
+                  <strong>submitted</strong>.   
+                   .
                 </div>
               )}
 
@@ -210,23 +210,23 @@ export default function ChallengeDetailsSection({
                   }}
                 >
                   <div style={{ fontWeight: 600, marginBottom: 4 }}>
-                    ✅ Работа проверена!
+                    ✅  !
                   </div>
                   {currentStudentAttempt?.grade != null && (
                     <div>
-                      Оценка:{" "}
+                      Grade:{" "}
                       <strong>{currentStudentAttempt.grade}</strong>
                     </div>
                   )}
                   {currentStudentAttempt?.feedback && (
                     <div style={{ marginTop: 4 }}>
-                      Комментарий: {currentStudentAttempt.feedback}
+                      : {currentStudentAttempt.feedback}
                     </div>
                   )}
                   {!currentStudentAttempt?.feedback &&
                     currentStudentAttempt?.grade == null && (
                       <div>
-                        Преподаватель ещё не оставил подробный комментарий.
+                        Teacher     .
                       </div>
                     )}
                 </div>
@@ -236,23 +236,23 @@ export default function ChallengeDetailsSection({
 
           {isReviewer && (
             <div style={{ marginTop: 24 }}>
-              <h3>Сабмиты студентов</h3>
+              <h3>Submissions </h3>
 
               {subsLoading && (
                 <div className="ch-empty" style={{ marginTop: 8 }}>
-                  Загружаем сабмиты...
+                   ...
                 </div>
               )}
 
               {subsError && (
                 <div className="alert alert-error" style={{ marginTop: 8 }}>
-                  Ошибка: {subsError}
+                  Error: {subsError}
                 </div>
               )}
 
               {!subsLoading && !subsError && submissions.length === 0 && (
                 <div className="ch-empty" style={{ marginTop: 8 }}>
-                  Пока нет отправленных решений по этому челленджу.
+                        .
                 </div>
               )}
 
@@ -264,12 +264,12 @@ export default function ChallengeDetailsSection({
                         <div>
                           <h3>{s.student_full_name}</h3>
                           <p className="ch-desc">
-                            {s.student_email} · статус: {s.status}
+                            {s.student_email} · : {s.status}
                           </p>
                         </div>
                         {s.grade != null && (
                           <span className="ch-type">
-                            Оценка: {s.grade}
+                            Grade: {s.grade}
                           </span>
                         )}
                       </div>
@@ -283,7 +283,7 @@ export default function ChallengeDetailsSection({
                               rel="noreferrer"
                               style={{ color: "#bfdbfe" }}
                             >
-                              Открыть ссылку
+                               
                             </a>
                           </span>
                         )}
@@ -307,7 +307,7 @@ export default function ChallengeDetailsSection({
                           className="btn btn-primary"
                           onClick={() => startReview(s)}
                         >
-                          Оценить / отредактировать отзыв
+                           /  
                         </button>
                       </div>
                     </div>
@@ -319,16 +319,16 @@ export default function ChallengeDetailsSection({
         </div>
       )}
 
-      {/* Модалка ревью сабмита */}
+      {/*    */}
       <Modal
         open={!!reviewAttemptId}
         onClose={closeReview}
-        title="Ревью сабмита студента"
+        title="Review student submission"
         width={520}
       >
         {reviewError && (
           <div className="alert alert-error" style={{ marginBottom: 10 }}>
-            Ошибка: {reviewError}
+            Error: {reviewError}
           </div>
         )}
 
@@ -348,7 +348,7 @@ export default function ChallengeDetailsSection({
 
         <form className="auth-form" onSubmit={handleReviewSubmit}>
           <div className="form-group">
-            <label>Оценка (0–100, опционально)</label>
+            <label> (0–100, )</label>
             <input
               type="number"
               min="0"
@@ -359,7 +359,7 @@ export default function ChallengeDetailsSection({
           </div>
 
           <div className="form-group">
-            <label>Фидбэк студенту</label>
+            <label> </label>
             <textarea
               rows={4}
               value={reviewFeedback}
@@ -390,14 +390,14 @@ export default function ChallengeDetailsSection({
               className="btn btn-ghost"
               onClick={closeReview}
             >
-              Отмена
+              
             </button>
             <button
               type="submit"
               className="btn btn-primary"
               disabled={reviewLoading}
             >
-              {reviewLoading ? "Сохраняем..." : "Сохранить отзыв"}
+              {reviewLoading ? "Saving..." : "Save feedback"}
             </button>
           </div>
         </form>

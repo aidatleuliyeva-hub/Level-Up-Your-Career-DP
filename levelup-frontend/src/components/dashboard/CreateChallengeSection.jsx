@@ -24,65 +24,65 @@ export default function CreateChallengeSection({
     <section className="content-section">
       <div className="content-header">
         <div>
-          <h1>Создать челлендж</h1>
+          <h1>Create challenge</h1>
           <p>
-            Описание задания для студентов: теоретический модуль, проектная
-            работа или реальный кейс от компании.
+            Challenge description for students: a theoretical module, a project
+            assignment, or a real company case.
           </p>
         </div>
       </div>
 
       {!canCreate && (
         <div className="alert alert-error">
-          Ваша роль не может создавать челленджи.  
-          Доступно для <strong>teacher / company / admin</strong>.
+          Your role cannot create challenges.  
+          Available for <strong>teacher / company / admin</strong>.
         </div>
       )}
 
       {canCreate && (
         <div className="form-layout">
-          {/* Основная форма */}
+          {/*   */}
           <div className="ch-card form-panel">
             <div className="form-panel-header">
-              <h2>Параметры челленджа</h2>
+              <h2>Challenge parameters</h2>
               <p>
-                Сформулируйте короткий, понятный вызов для студента: что он
-                должен сделать и какой результат ожидается.
+                Write a short, clear challenge for the student: what
+                they need to do and what result is expected.
               </p>
             </div>
 
             <form className="auth-form" onSubmit={handleCreateChallenge}>
               <div className="form-grid-2">
                 <div className="form-group">
-                  <label>Заголовок челленджа</label>
+                  <label>Challenge title</label>
                   <input
                     type="text"
                     value={chTitle}
                     onChange={(e) => setChTitle(e.target.value)}
-                    placeholder="Например: Backend-челлендж: REST API на Go"
+                    placeholder="Example: Backend challenge: REST API in Go"
                     required
                   />
                 </div>
 
                 <div className="form-group">
-                  <label>Тип челленджа</label>
+                  <label>Challenge type</label>
                   <select
                     value={chType}
                     onChange={(e) => setChType(e.target.value)}
                   >
-                    <option value="academic">academic (учебный)</option>
-                    <option value="company">company (от компании)</option>
+                    <option value="academic">academic (coursework)</option>
+                    <option value="company">company (industry)</option>
                   </select>
                 </div>
               </div>
 
               <div className="form-group">
-                <label>Описание задания</label>
+                <label>Task description</label>
                 <textarea
                   value={chDescription}
                   onChange={(e) => setChDescription(e.target.value)}
                   rows={5}
-                  placeholder="Кратко: контекст, что нужно сделать, критерии успешности. Без огромных простыней текста."
+                  placeholder="Briefly describe the context, what needs to be done, and success criteria. Keep it concise."
                   style={{
                     resize: "vertical",
                     borderRadius: 9,
@@ -99,17 +99,17 @@ export default function CreateChallengeSection({
 
               <div className="form-grid-3">
                 <div className="form-group">
-                  <label>Сложность</label>
+                  <label>Difficulty</label>
                   <input
                     type="text"
                     value={chDifficulty}
                     onChange={(e) => setChDifficulty(e.target.value)}
-                    placeholder="например: easy / medium / hard"
+                    placeholder="e.g., easy / medium / hard"
                   />
                 </div>
 
                 <div className="form-group">
-                  <label>Кредиты (опционально)</label>
+                  <label>Credits ()</label>
                   <input
                     type="number"
                     min="0"
@@ -120,20 +120,20 @@ export default function CreateChallengeSection({
                 </div>
 
                 <div className="form-group">
-                  <label>Вознаграждение, € (опционально)</label>
+                  <label>, € ()</label>
                   <input
                     type="number"
                     min="0"
                     step="0.01"
                     value={chRewardAmount}
                     onChange={(e) => setChRewardAmount(e.target.value)}
-                    placeholder="например: 150"
+                    placeholder="e.g., 150"
                   />
                 </div>
               </div>
 
               {createError && (
-                <div className="alert alert-error">Ошибка: {createError}</div>
+                <div className="alert alert-error">Error: {createError}</div>
               )}
 
               {createSuccess && (
@@ -146,25 +146,25 @@ export default function CreateChallengeSection({
                   className="btn btn-primary"
                   disabled={createLoading}
                 >
-                  {createLoading ? "Создаём..." : "Создать челлендж"}
+                  {createLoading ? "Creating..." : "Create challenge"}
                 </button>
               </div>
             </form>
           </div>
 
-          {/* Правая колонка — подсказки */}
+          {/*   —  */}
           <aside className="ch-card form-aside">
-            <div className="form-aside-title">Как сделать челлендж сильным</div>
+            <div className="form-aside-title">   </div>
             <ul className="form-aside-list">
-              <li>1–2 абзаца контекста, без лишней воды.</li>
-              <li>Чёткий ожидаемый результат: код, презентация, отчёт.</li>
-              <li>Понятные критерии оценки: что считается «хорошо».</li>
-              <li>Реалистичный объём работы на 1–2 недели.</li>
+              <li>1–2  ,   .</li>
+              <li>  : , , .</li>
+              <li>  :   «».</li>
+              <li>    1–2 .</li>
             </ul>
 
             <div className="form-aside-note">
-              Такие челленджи потом можно показывать компаниям как
-              портфолио-работы студентов.
+                    
+              - .
             </div>
           </aside>
         </div>

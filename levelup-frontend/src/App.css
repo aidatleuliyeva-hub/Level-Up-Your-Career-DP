@@ -1,6 +1,6 @@
 /* F:\gopro\levelup-frontend\src\App.css */
 :root {
-  /* Базовые */
+  /*  */
   --bg-main: #050816;
   --bg-elevated: #0b1020;
   --bg-elevated-strong: #101632;
@@ -35,7 +35,7 @@
   --shadow-strong: 0 22px 60px rgba(15, 23, 42, 0.9);
 }
 
-/* === БАЗА === */
+/* ===  === */
 
 html,
 body,
@@ -62,7 +62,7 @@ body {
   color: var(--text-main);
 }
 
-/* === Страница авторизации === */
+/* ===   === */
 
 .auth-page {
   min-height: 100vh;
@@ -89,7 +89,7 @@ body {
   box-shadow: var(--shadow-strong);
 }
 
-/* Логотип */
+/*  */
 
 .auth-logo {
   display: flex;
@@ -134,7 +134,7 @@ body {
   color: var(--text-muted);
 }
 
-/* Табы */
+/*  */
 
 .auth-tabs {
   display: inline-flex;
@@ -162,7 +162,7 @@ body {
   box-shadow: 0 8px 18px rgba(79, 70, 229, 0.8);
 }
 
-/* Формы */
+/*  */
 
 .auth-form {
   padding: 12px 0 6px;
@@ -206,7 +206,7 @@ body {
   background: #020617;
 }
 
-/* Кнопки */
+/*  */
 
 .btn {
   border-radius: 999px;
@@ -256,7 +256,7 @@ body {
   color: #e5e7eb;
 }
 
-/* Alerts (один раз, финальная версия) */
+/* Alerts ( ,  ) */
 
 .alert {
   border-radius: 12px;
@@ -682,7 +682,7 @@ body {
   border: 1px solid rgba(148, 163, 184, 0.5);
 }
 
-/* KPI блоки в профиле */
+/* KPI    */
 
 .kpi-grid {
   display: grid;
@@ -723,7 +723,7 @@ body {
   color: var(--text-soft);
 }
 
-/* Горизонтальный список в профиле */
+/*     */
 
 .ch-horizontal-list {
   display: flex;
@@ -738,7 +738,7 @@ body {
   max-width: 320px;
 }
 
-/* Status badge (если захотим использовать для статусов попыток) */
+/* Status badge (     ) */
 
 .status-badge {
   display: inline-flex;
@@ -759,7 +759,7 @@ body {
   background: currentColor;
 }
 
-/* Пример раскраски (можно использовать в будущем) */
+/*   (   ) */
 
 .status-started {
   background: rgba(251, 191, 36, 0.12);
@@ -836,10 +836,10 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 0; /* текст скрыт, оставим под иконки */
+  font-size: 0; /*  ,    */
 }
 
-/* === OVERVIEW HERO / GRID (если дойдём до hero на главной) === */
+/* === OVERVIEW HERO / GRID (   hero  ) === */
 
 .overview-hero {
   display: grid;
@@ -957,7 +957,7 @@ body {
     rgba(15, 23, 42, 0.98);
 }
 
-/* === MICROTASKS (в запасе, под будущие доработки) === */
+/* === MICROTASKS ( ,   ) === */
 
 .microtasks-layout {
   display: grid;
@@ -1058,7 +1058,7 @@ body {
   justify-content: flex-end;
 }
 
-/* === CHALLENGE DETAILS LAYOUT (под будущее) === */
+/* === CHALLENGE DETAILS LAYOUT ( ) === */
 
 .challenge-layout {
   margin-top: 14px;
@@ -1101,7 +1101,7 @@ body {
   color: var(--text-muted);
 }
 
-/* === Адаптив === */
+/* ===  === */
 
 @media (max-width: 900px) {
   .dashboard-shell {
@@ -1239,7 +1239,7 @@ body {
   background: #020617;
 }
 
-/* Tabs для статусов */
+/* Tabs   */
 
 .status-tabs {
   display: inline-flex;
@@ -1267,7 +1267,7 @@ body {
   box-shadow: 0 9px 20px rgba(79, 70, 229, 0.7);
 }
 
-/* адаптив для фильтров */
+/*    */
 
 @media (max-width: 700px) {
   .content-filters-row {

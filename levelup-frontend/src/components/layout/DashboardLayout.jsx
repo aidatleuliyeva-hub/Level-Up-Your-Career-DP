@@ -69,18 +69,18 @@ export default function DashboardLayout({
         </div>
 
         <nav className="sidebar-nav">
-          {navItem("overview", "Обзор челленджей")}
-          {navItem("profile", "Профиль", { disabled: !isStudent })}
-          {navItem("my-challenges", "Мои челленджи", { disabled: !isStudent })}
-          {navItem("create-challenge", "Создать челлендж", {
+          {navItem("overview", "Challenges overview")}
+          {navItem("profile", "Profile", { disabled: !isStudent })}
+          {navItem("my-challenges", "My challenges", { disabled: !isStudent })}
+          {navItem("create-challenge", "Create challenge", {
             disabled: !canCreate,
           })}
-          {navItem("create-microtask", "Создать микрозадачу", {
+          {navItem("create-microtask", "Create microtask", {
             disabled: !canCreate,
           })}
-          {navItem("microtasks", "Микрозадачи")}
-          {navItem("rating", "Рейтинг", { disabled: true })}
-          {navItem("portfolio", "Портфолио", { disabled: true })}
+          {navItem("microtasks", "Microtasks")}
+          {navItem("rating", "Leaderboard", { disabled: true })}
+          {navItem("portfolio", "Portfolio", { disabled: true })}
         </nav>
 
         <div className="sidebar-user">
@@ -96,7 +96,7 @@ export default function DashboardLayout({
                 className="logout-btn"
                 onClick={onLogout}
               >
-                Выйти
+                Sign out
               </button>
             </div>
           )}
@@ -108,8 +108,8 @@ export default function DashboardLayout({
           <div className="header-title">Level Up Your Career</div>
           <div className="user-greeting">
             {user.role === "student"
-              ? "Готов прокачиваться сегодня?"
-              : "Готов запускать новые челленджи?"}
+              ? "Ready to level up today?"
+              : "Ready to launch new challenges?"}
           </div>
         </header>
 

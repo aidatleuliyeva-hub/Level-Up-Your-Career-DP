@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
-import "./AuthPage.css"; // 📌 новый отдельный стиль
+import "./AuthPage.css"; // 📌   
 
 export default function AuthPage() {
   const navigate = useNavigate();
@@ -10,21 +10,21 @@ export default function AuthPage() {
 
   const [mode, setMode] = useState("login");
 
-  // регистрация
+  // 
   const [regEmail, setRegEmail] = useState("");
   const [regPassword, setRegPassword] = useState("");
   const [regFullName, setRegFullName] = useState("");
   const [regRole, setRegRole] = useState("student");
   const [regError, setRegError] = useState(null);
 
-  // логин
+  // 
   const [loginEmail, setLoginEmail] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
   const [loginError, setLoginError] = useState(null);
 
   const [loading, setLoading] = useState(false);
 
-  // уже залогинен → сразу на дашборд
+  //   →   
   useEffect(() => {
     if (!initializing && isAuthenticated) {
       navigate("/dashboard", { replace: true });
@@ -65,12 +65,12 @@ export default function AuthPage() {
   };
 
   if (initializing) {
-    return <div className="splash-screen">Loading...</div>;
+    return <div className="splash-screen">...</div>;
   }
 
   return (
     <div className="auth-page">
-      {/* мягкие подсветки на фоне */}
+      {/*     */}
       <div className="auth-orbit auth-orbit-left" />
       <div className="auth-orbit auth-orbit-right" />
 
@@ -81,15 +81,15 @@ export default function AuthPage() {
             <div className="logo-text">
               <div className="logo-title">Level Up Your Career</div>
               <div className="logo-subtitle">
-  Challenges, real-world tasks, and hands-on experience — while still studying
-</div>
+                Challenges,     —    
+              </div>
             </div>
           </div>
 
           <div className="auth-tagline">
-  A challenge and micro-task platform that helps students
-  build their portfolio while still at university.
-</div>
+               ,   
+                 .
+          </div>
         </div>
 
         <div className="auth-card-body">
@@ -214,7 +214,7 @@ export default function AuthPage() {
 
         <div className="auth-card-footer">
           <div className="auth-footer-note">
-            This prorotype is connected to the Go + PostgreSQL API at{" "}
+                Go + PostgreSQL API {" "}
             <code>localhost:8080</code>
           </div>
           <div className="auth-footer-meta">

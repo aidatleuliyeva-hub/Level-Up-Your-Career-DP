@@ -22,52 +22,52 @@ export default function CreateMicrotaskSection({
     <section className="content-section">
       <div className="content-header">
         <div>
-          <h1>Создать микрозадачу</h1>
+          <h1>Create microtask</h1>
           <p>
-            Маленькое практическое задание: тестовое для стажёров, мини-исследование
-            или кусочек реального проекта.
+              :   , -
+               .
           </p>
         </div>
       </div>
 
       {!canCreate && (
         <div className="alert alert-error">
-          Ваша роль не может создавать микрозадачи.  
-          Доступно для <strong>teacher / company / admin</strong>.
+               .  
+          Available for <strong>teacher / company / admin</strong>.
         </div>
       )}
 
       {canCreate && (
         <div className="form-layout">
-          {/* Основная форма */}
+          {/*   */}
           <div className="ch-card form-panel">
             <div className="form-panel-header">
-              <h2>Параметры микрозадачи</h2>
+              <h2> </h2>
               <p>
-                Микрозадача — это задание на 1–3 часа.  
-                Цель — быстро проверить навыки и дать небольшой, но реальный опыт.
+                 —    1–3 .  
+                 —      ,   .
               </p>
             </div>
 
             <form className="auth-form" onSubmit={handleCreateMicrotask}>
               <div className="form-group">
-                <label>Заголовок</label>
+                <label></label>
                 <input
                   type="text"
                   value={mtTitle}
                   onChange={(e) => setMtTitle(e.target.value)}
-                  placeholder="Например: Написать SQL-запрос для отчёта"
+                  placeholder="Example: Write an SQL query for a report"
                   required
                 />
               </div>
 
               <div className="form-group">
-                <label>Описание</label>
+                <label></label>
                 <textarea
                   value={mtDescription}
                   onChange={(e) => setMtDescription(e.target.value)}
                   rows={4}
-                  placeholder="Коротко опишите задачу, входные данные и что считать результатом."
+                  placeholder="Briefly describe the task, inputs, and what counts as the result."
                   style={{
                     resize: "vertical",
                     borderRadius: 9,
@@ -84,17 +84,17 @@ export default function CreateMicrotaskSection({
 
               <div className="form-grid-3">
                 <div className="form-group">
-                  <label>Сложность</label>
+                  <label>Difficulty</label>
                   <input
                     type="text"
                     value={mtDifficulty}
                     onChange={(e) => setMtDifficulty(e.target.value)}
-                    placeholder="например: easy / medium / hard"
+                    placeholder="e.g., easy / medium / hard"
                   />
                 </div>
 
                 <div className="form-group">
-                  <label>Кредиты (опционально)</label>
+                  <label>Credits ()</label>
                   <input
                     type="number"
                     min="0"
@@ -105,21 +105,21 @@ export default function CreateMicrotaskSection({
                 </div>
 
                 <div className="form-group">
-                  <label>Вознаграждение, € (опционально)</label>
+                  <label>, € ()</label>
                   <input
                     type="number"
                     min="0"
                     step="0.01"
                     value={mtRewardAmount}
                     onChange={(e) => setMtRewardAmount(e.target.value)}
-                    placeholder="например: 20"
+                    placeholder="e.g., 20"
                   />
                 </div>
               </div>
 
               {mtCreateError && (
                 <div className="alert alert-error">
-                  Ошибка: {mtCreateError}
+                  Error: {mtCreateError}
                 </div>
               )}
 
@@ -133,25 +133,25 @@ export default function CreateMicrotaskSection({
                   className="btn btn-primary"
                   disabled={mtCreateLoading}
                 >
-                  {mtCreateLoading ? "Создаём..." : "Создать микрозадачу"}
+                  {mtCreateLoading ? "Creating..." : "Create microtask"}
                 </button>
               </div>
             </form>
           </div>
 
-          {/* Правая колонка — подсказки */}
+          {/*   —  */}
           <aside className="ch-card form-aside">
-            <div className="form-aside-title">Хорошая микрозадача</div>
+            <div className="form-aside-title"> </div>
             <ul className="form-aside-list">
-              <li>Решается за 1–3 часа.</li>
-              <li>Имеет чёткий, измеримый результат.</li>
-              <li>Связана с реальными задачами команды.</li>
-              <li>Подходит для стажёров / джунов.</li>
+              <li>  1–3 .</li>
+              <li> ,  .</li>
+              <li>    .</li>
+              <li>   / .</li>
             </ul>
 
             <div className="form-aside-note">
-              Микрозадачи помогают быстро заметить сильных студентов и собрать
-              для них первые проекты в портфолио.
+              Microtasks       
+                   .
             </div>
           </aside>
         </div>

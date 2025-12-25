@@ -45,7 +45,7 @@ export function ToastProvider({ children }) {
   return (
     <ToastContext.Provider value={{ toast }}>
       {children}
-      {/* Контейнер тостов сверху всех */}
+      {/*     */}
       <div className="toast-root">
         {toasts.map((t) => (
           <button

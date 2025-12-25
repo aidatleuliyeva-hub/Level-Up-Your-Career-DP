@@ -3,7 +3,7 @@ import React, { useEffect } from "react";
 import "./Modal.css";
 
 export default function Modal({ open, onClose, title, children, width = 480 }) {
-  // Закрытие на ESC
+  //   ESC
   useEffect(() => {
     if (!open) return;
     const handler = (e) => {
@@ -28,7 +28,7 @@ export default function Modal({ open, onClose, title, children, width = 480 }) {
 
         <div className="modal-footer">
           <button className="btn btn-ghost" onClick={onClose}>
-            Закрыть
+            Close
           </button>
         </div>
       </div>

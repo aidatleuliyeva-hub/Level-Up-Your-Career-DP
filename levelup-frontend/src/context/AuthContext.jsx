@@ -14,7 +14,7 @@ export function AuthProvider({ children }) {
   const [token, setToken] = useState(null);
   const [initializing, setInitializing] = useState(true);
 
-  // Первичная инициализация из localStorage + валидация токена по /me
+  //    localStorage +    /me
   useEffect(() => {
     const savedToken = localStorage.getItem("token");
     const savedUser = localStorage.getItem("currentUser");
@@ -29,10 +29,10 @@ export function AuthProvider({ children }) {
       setUser(parsedUser);
       setToken(savedToken);
 
-      // валидируем токен
+      //  
       getMe(savedToken)
         .catch(() => {
-          // токен уже протух или подпись не та
+          //       
           localStorage.removeItem("token");
           localStorage.removeItem("currentUser");
           setUser(null);
@@ -63,7 +63,7 @@ export function AuthProvider({ children }) {
   };
 
   const register = async ({ email, password, fullName }) => {
-    // напомню: на бэке мы уже игнорируем роль и всегда создаём student
+    // :          student
     return registerUser({ email, password, fullName });
   };
 

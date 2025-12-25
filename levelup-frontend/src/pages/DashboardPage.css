@@ -1,10 +1,10 @@
 /* ===========================
    DashboardPage — Level Up (Light)
-   Светлый, чистый дашборд на всю ширину
+   ,     
    =========================== */
 
 :root {
-  /* Палитра */
+  /*  */
   --bg-page: #edf1f9;
   --bg-header: #ffffff;
   --bg-sidebar: #f6f7fc;
@@ -33,7 +33,7 @@
   --header-height: 60px;
 }
 
-/* ---- База ---- */
+/* ----  ---- */
 
 .dashboard-page {
   min-height: 100vh;
@@ -48,7 +48,7 @@
     "Segoe UI", sans-serif;
 }
 
-/* на всю ширину экрана */
+/*     */
 .dashboard-shell {
   width: 100%;
   min-height: 100vh;
@@ -80,7 +80,7 @@
   gap: 12px;
 }
 
-/* кнопка сайдбара */
+/*   */
 
 .sidebar-toggle-btn {
   width: 32px;
@@ -114,7 +114,7 @@
   color: var(--accent-strong);
 }
 
-/* логотип */
+/*  */
 
 .logo-mini {
   width: 32px;
@@ -153,7 +153,7 @@
   color: var(--text-muted);
 }
 
-/* пользователь справа */
+/*   */
 
 .header-user-info {
   display: flex;
@@ -222,7 +222,7 @@
   border: 1px solid rgba(148, 163, 184, 0.26);
 }
 
-/* карточка пользователя */
+/*   */
 
 .sidebar-user-card {
   display: flex;
@@ -319,7 +319,7 @@
   box-shadow: 0 10px 24px rgba(37, 99, 235, 0.55);
 }
 
-/* подсказка */
+/*  */
 
 .sidebar-hint {
   margin-top: auto;
@@ -343,7 +343,7 @@
   color: #b45309;
 }
 
-/* Sidebar: свёрнутое состояние (desktop) */
+/* Sidebar:   (desktop) */
 
 .dashboard-shell-collapsed .dashboard-sidebar {
   width: var(--sidebar-width-collapsed);
@@ -389,7 +389,7 @@
   border-left: 1px solid var(--border-subtle);
 }
 
-/* чтобы вложенные секции не разъезжались по ширине */
+/*        */
 .dashboard-content > * {
   min-width: 0;
 }
@@ -486,7 +486,7 @@
 }
 
 /* ===========================
-   Typography внутри контента
+   Typography  
    =========================== */
 
 .dashboard-content h1,
@@ -566,7 +566,7 @@
     transform: translateX(0);
   }
 
-  /* на мобиле collapsed = скрытый сайдбар */
+  /*   collapsed =   */
   .dashboard-shell-collapsed .dashboard-sidebar {
     transform: translateX(-110%);
     box-shadow: none;

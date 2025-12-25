@@ -114,7 +114,7 @@
 //   const [mtStatusLoadingId, setMtStatusLoadingId] = useState(null);
 //   const [mtStatusError, setMtStatusError] = useState(null);
 
-//   // Инициализация пользователя/токена
+//   //  /
 //   useEffect(() => {
 //     const savedUser = localStorage.getItem("currentUser");
 //     const savedToken = localStorage.getItem("token");
@@ -124,13 +124,13 @@
 //         setUser(JSON.parse(savedUser));
 //         setToken(savedToken);
 //       } catch {
-//         // Если тут ошибка парсинга — просто молча игнорим,
-//         // редирект теперь делает PrivateRoute
+//         //     —   ,
+//         //    PrivateRoute
 //       }
 //     }
-//   }, []); // без navigate в зависимостях
+//   }, []); //  navigate  
 
-//   // Загрузка опубликованных челленджей
+//   //   
 //   useEffect(() => {
 //     if (!token) return;
 
@@ -150,7 +150,7 @@
 //     load();
 //   }, [token]);
 
-//   // Загрузка микрозадач
+//   //  
 //   useEffect(() => {
 //     if (!token) return;
 
@@ -170,7 +170,7 @@
 //     load();
 //   }, [token]);
 
-//   // Детали челленджа
+//   //  
 //   useEffect(() => {
 //     if (activeView !== "challenge-details") return;
 //     if (!token || !selectedChallengeId) return;
@@ -192,7 +192,7 @@
 //     loadDetails();
 //   }, [activeView, token, selectedChallengeId]);
 
-//   // Сабмиты по челленджу — для teacher/company/admin
+//   // Submissions   —  teacher/company/admin
 //   useEffect(() => {
 //     if (activeView !== "challenge-details") return;
 //     if (!token || !selectedChallengeId || !user) return;
@@ -220,7 +220,7 @@
 //     loadSubs();
 //   }, [activeView, token, selectedChallengeId, user]);
 
-//   // Мои челленджи (student)
+//   // My challenges (student)
 //   useEffect(() => {
 //     if (!token || !user) return;
 //     if (user.role !== "student") return;
@@ -241,7 +241,7 @@
 //     loadMy();
 //   }, [token, user]);
 
-//   // Мои микрозадачи (student)
+//   // My microtasks (student)
 //   useEffect(() => {
 //     if (!token || !user) return;
 //     if (user.role !== "student") return;
@@ -275,7 +275,7 @@
 //     localStorage.removeItem("token");
 //     localStorage.removeItem("currentUser");
 
-//     // даём React спокойно доотработать эффекты, потом уходим
+//     //  React   ,  
 //     setTimeout(() => {
 //       navigate("/", { replace: true });
 //     }, 0);
@@ -312,7 +312,7 @@
 //       }
 
 //       const created = await createChallenge(token, payload);
-//       setCreateSuccess(`Челлендж создан (ID: ${created.id})`);
+//       setCreateSuccess(`Challenge created (ID: ${created.id})`);
 
 //       setChTitle("");
 //       setChDescription("");
@@ -324,7 +324,7 @@
 //         const data = await getChallenges(token);
 //         setChallenges(data);
 //       } catch {
-//         // тихо
+//         // 
 //       }
 //     } catch (err) {
 //       setCreateError(err.message);
@@ -363,7 +363,7 @@
 //       }
 
 //       const created = await createMicrotask(token, payload);
-//       setMtCreateSuccess(`Микрозадача создана (ID: ${created.id})`);
+//       setMtCreateSuccess(`Microtask created (ID: ${created.id})`);
 
 //       setMtTitle("");
 //       setMtDescription("");
@@ -375,7 +375,7 @@
 //         const data = await getMicrotasks(token);
 //         setMicrotasks(data);
 //       } catch {
-//         // молча
+//         // 
 //       }
 //     } catch (err) {
 //       setMtCreateError(err.message);
@@ -403,7 +403,7 @@
 //           const data = await getMyChallenges(token);
 //           setMyChallenges(data);
 //         } catch {
-//           // тихо
+//           // 
 //         }
 //       }
 //     } catch (err) {
@@ -427,14 +427,14 @@
 
 //       await submitChallenge(token, selectedChallengeId, payload);
 
-//       setSubmitSuccess("Решение отправлено. Статус: submitted.");
+//       setSubmitSuccess("Solution submitted. Status: submitted.");
 
 //       if (isStudent) {
 //         try {
 //           const data = await getMyChallenges(token);
 //           setMyChallenges(data);
 //         } catch {
-//           // молча
+//           // 
 //         }
 //       }
 //     } catch (err) {
@@ -465,7 +465,7 @@
 //       if (reviewGrade.trim() !== "") {
 //         const parsed = parseInt(reviewGrade, 10);
 //         if (Number.isNaN(parsed)) {
-//           throw new Error("Оценка должна быть числом");
+//           throw new Error("Grade must be a number");
 //         }
 //         gradeValue = parsed;
 //       }
@@ -475,7 +475,7 @@
 //         feedback: reviewFeedback,
 //       });
 
-//       setReviewSuccess("Отзыв сохранён, статус: reviewed");
+//       setReviewSuccess("Feedback saved, status: reviewed");
 
 //       setSubmissions((prev) =>
 //         prev.map((s) =>
@@ -524,7 +524,7 @@
 //         application_text: applicationText,
 //       });
 
-//       setApplySuccess("Отклик отправлен.");
+//       setApplySuccess("Response sent.");
 //       setApplyMicrotaskId(null);
 //       setApplicationText("");
 
@@ -595,7 +595,7 @@
 //         result_link: resultLink,
 //       });
 
-//       setResultSuccess("Результат отправлен.");
+//       setResultSuccess("Result submitted.");
 //       setResultForAppId(null);
 //       setResultText("");
 //       setResultLink("");
@@ -795,14 +795,14 @@
 //       );
 //     }
 
-//     // Заглушки для rating/portfolio, если вдруг кликнешь
+//     //   rating/portfolio,   
 //     if (activeView === "rating" || activeView === "portfolio") {
 //       return (
 //         <section className="content-section">
 //           <div className="content-header">
 //             <div>
-//               <h1>Раздел в разработке</h1>
-//               <p>Позже здесь появятся рейтинг и портфолио студента.</p>
+//               <h1>Section under development</h1>
+//               <p>      .</p>
 //             </div>
 //           </div>
 //         </section>
@@ -918,7 +918,7 @@ export default function DashboardPage() {
     setReviewAttemptId(null);
     setReviewError(null);
     setReviewSuccess(null);
-    // оценку/фидбэк можно оставить, чтобы не стирались, но хочешь — чисти:
+    // /  ,   ,   — :
     // setReviewGrade("");
     // setReviewFeedback("");
   };
@@ -971,7 +971,7 @@ export default function DashboardPage() {
   const [mtStatusLoadingId, setMtStatusLoadingId] = useState(null);
   const [mtStatusError, setMtStatusError] = useState(null);
 
-  // Загрузка опубликованных челленджей
+  //   
   useEffect(() => {
     if (!token) return;
 
@@ -991,7 +991,7 @@ export default function DashboardPage() {
     load();
   }, [token]);
 
-  // Загрузка микрозадач
+  //  
   useEffect(() => {
     if (!token) return;
 
@@ -1011,7 +1011,7 @@ export default function DashboardPage() {
     load();
   }, [token]);
 
-  // Детали челленджа
+  //  
   useEffect(() => {
     if (activeView !== "challenge-details") return;
     if (!token || !selectedChallengeId) return;
@@ -1033,7 +1033,7 @@ export default function DashboardPage() {
     loadDetails();
   }, [activeView, token, selectedChallengeId]);
 
-  // Сабмиты по челленджу — для teacher/company/admin
+  // Submissions   —  teacher/company/admin
   useEffect(() => {
     if (activeView !== "challenge-details") return;
     if (!token || !selectedChallengeId || !user) return;
@@ -1061,7 +1061,7 @@ export default function DashboardPage() {
     loadSubs();
   }, [activeView, token, selectedChallengeId, user]);
 
-  // Мои челленджи (student)
+  // My challenges (student)
   useEffect(() => {
     if (!token || !user) return;
     if (user.role !== "student") return;
@@ -1082,7 +1082,7 @@ export default function DashboardPage() {
     loadMy();
   }, [token, user]);
 
-  // Мои микрозадачи (student)
+  // My microtasks (student)
   useEffect(() => {
     if (!token || !user) return;
     if (user.role !== "student") return;
@@ -1148,7 +1148,7 @@ export default function DashboardPage() {
       }
 
       const created = await createChallenge(token, payload);
-      setCreateSuccess(`Челлендж создан (ID: ${created.id})`);
+      setCreateSuccess(`Challenge created (ID: ${created.id})`);
 
       setChTitle("");
       setChDescription("");
@@ -1160,7 +1160,7 @@ export default function DashboardPage() {
         const data = await getChallenges(token);
         setChallenges(data);
       } catch {
-        // тихо
+        // 
       }
     } catch (err) {
       setCreateError(err.message);
@@ -1199,7 +1199,7 @@ export default function DashboardPage() {
       }
 
       const created = await createMicrotask(token, payload);
-      setMtCreateSuccess(`Микрозадача создана (ID: ${created.id})`);
+      setMtCreateSuccess(`Microtask created (ID: ${created.id})`);
 
       setMtTitle("");
       setMtDescription("");
@@ -1211,7 +1211,7 @@ export default function DashboardPage() {
         const data = await getMicrotasks(token);
         setMicrotasks(data);
       } catch {
-        // молча
+        // 
       }
     } catch (err) {
       setMtCreateError(err.message);
@@ -1239,7 +1239,7 @@ export default function DashboardPage() {
           const data = await getMyChallenges(token);
           setMyChallenges(data);
         } catch {
-          // тихо
+          // 
         }
       }
     } catch (err) {
@@ -1263,14 +1263,14 @@ export default function DashboardPage() {
 
       await submitChallenge(token, selectedChallengeId, payload);
 
-      setSubmitSuccess("Решение отправлено. Статус: submitted.");
+      setSubmitSuccess("Solution submitted. Status: submitted.");
 
       if (isStudent) {
         try {
           const data = await getMyChallenges(token);
           setMyChallenges(data);
         } catch {
-          // молча
+          // 
         }
       }
     } catch (err) {
@@ -1301,7 +1301,7 @@ export default function DashboardPage() {
       if (reviewGrade.trim() !== "") {
         const parsed = parseInt(reviewGrade, 10);
         if (Number.isNaN(parsed)) {
-          throw new Error("Оценка должна быть числом");
+          throw new Error("Grade must be a number");
         }
         gradeValue = parsed;
       }
@@ -1311,7 +1311,7 @@ export default function DashboardPage() {
         feedback: reviewFeedback,
       });
 
-      setReviewSuccess("Отзыв сохранён, статус: reviewed");
+      setReviewSuccess("Feedback saved, status: reviewed");
 
       setSubmissions((prev) =>
         prev.map((s) =>
@@ -1360,7 +1360,7 @@ export default function DashboardPage() {
         application_text: applicationText,
       });
 
-      setApplySuccess("Отклик отправлен.");
+      setApplySuccess("Response sent.");
       setApplyMicrotaskId(null);
       setApplicationText("");
 
@@ -1431,7 +1431,7 @@ export default function DashboardPage() {
         result_link: resultLink,
       });
 
-      setResultSuccess("Результат отправлен.");
+      setResultSuccess("Result submitted.");
       setResultForAppId(null);
       setResultText("");
       setResultLink("");
@@ -1637,8 +1637,8 @@ export default function DashboardPage() {
         <section className="content-section">
           <div className="content-header">
             <div>
-              <h1>Раздел в разработке</h1>
-              <p>Позже здесь появятся рейтинг и портфолио студента.</p>
+              <h1>Section under development</h1>
+              <p>      .</p>
             </div>
           </div>
         </section>

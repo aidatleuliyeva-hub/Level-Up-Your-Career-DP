@@ -64,17 +64,17 @@ export default function ProfileSection({
     <section className="content-section">
       <div className="content-header">
         <div>
-          <h1>Профиль студента</h1>
+          <h1>Profile </h1>
           <p>
-            Ваш прогресс по челленджам: сколько уже сделано, какие результаты и
-            сколько кредитов заработано.
+               :   ,   
+              .
           </p>
         </div>
       </div>
 
       {!isStudent && (
         <div className="alert alert-error">
-          Профиль доступен только для роли <strong>student</strong>.
+          Profile     <strong>student</strong>.
         </div>
       )}
 
@@ -82,75 +82,75 @@ export default function ProfileSection({
         <>
           {myLoading && (
             <div className="ch-empty" style={{ marginTop: 8 }}>
-              Обновляем данные по вашим челленджам...
+                  ...
             </div>
           )}
 
           {myError && (
-            <div className="alert alert-error">Ошибка: {myError}</div>
+            <div className="alert alert-error">Error: {myError}</div>
           )}
 
-          {/* KPI-блоки */}
+          {/* KPI- */}
           <div className="kpi-grid">
             <div className="kpi-card">
-              <div className="kpi-label">В процессе</div>
+              <div className="kpi-label">In progress</div>
               <div className="kpi-value">{startedCount}</div>
               <div className="kpi-sub">
-                Челленджи, которые вы начали как студент.
+                Challenges you started as a student.
               </div>
             </div>
 
             <div className="kpi-card">
-              <div className="kpi-label">Ожидают проверки</div>
+              <div className="kpi-label">Pending review</div>
               <div className="kpi-value">{submittedCount}</div>
               <div className="kpi-sub">
-                Отправлены, но ещё не проверены преподавателем или компанией.
+                Submitted but not yet reviewed by a teacher or a company.
               </div>
             </div>
 
             <div className="kpi-card">
-              <div className="kpi-label">Завершено</div>
+              <div className="kpi-label">Completed</div>
               <div className="kpi-value">{reviewedCount}</div>
-              <div className="kpi-sub">Проверенные и закрытые челленджи.</div>
+              <div className="kpi-sub">Reviewed and closed challenges.</div>
             </div>
 
             <div className="kpi-card">
-              <div className="kpi-label">Кредиты</div>
+              <div className="kpi-label">Credits</div>
               <div className="kpi-value">{totalCredits}</div>
               <div className="kpi-sub">
-                Набранные кредиты по завершённым челленджам.
+                Credits earned from completed challenges.
               </div>
             </div>
 
             <div className="kpi-card">
-              <div className="kpi-label">Заработано, €</div>
+              <div className="kpi-label">Earned, €</div>
               <div className="kpi-value">{totalAmount.toFixed(2)}</div>
               <div className="kpi-sub">
-                Суммарное вознаграждение по проверенным челленджам.
+                Total reward for reviewed challenges.
               </div>
             </div>
 
             <div className="kpi-card">
-              <div className="kpi-label">Средняя оценка</div>
+              <div className="kpi-label">Average rating</div>
               <div className="kpi-value">
                 {avgGrade != null ? avgGrade : "—"}
               </div>
               <div className="kpi-sub">
-                По челленджам, где преподаватель выставил оценку.
+                For challenges where a teacher gave a grade.
               </div>
             </div>
           </div>
 
-          {/* Последние проверенные челленджи */}
+          {/* Latest reviewed challenges */}
           <div className="challenges-section">
             <h3 style={{ marginTop: 18, marginBottom: 6 }}>
-              Последние проверенные челленджи
+              Latest reviewed challenges
             </h3>
 
             {reviewedCount === 0 && (
               <div className="ch-empty">
-                У вас пока нет проверенных челленджей. Как только работа будет
-                проверена, она появится здесь.
+                     .    
+                ,   .
               </div>
             )}
 
@@ -173,24 +173,24 @@ export default function ProfileSection({
                         </p>
                       </div>
                       {item.grade != null && (
-                        <span className="ch-type">Оценка: {item.grade}</span>
+                        <span className="ch-type">Grade: {item.grade}</span>
                       )}
                     </div>
 
                     <div className="ch-meta">
                       {item.difficulty && (
                         <span className="ch-pill">
-                          Сложность: {item.difficulty}
+                          Difficulty: {item.difficulty}
                         </span>
                       )}
                       {item.reward_credits != null && (
                         <span className="ch-pill">
-                          Кредиты: {item.reward_credits}
+                          Credits: {item.reward_credits}
                         </span>
                       )}
                       {item.reward_amount != null && (
                         <span className="ch-pill">
-                          Вознаграждение: {item.reward_amount} €
+                          Reward: {item.reward_amount} €
                         </span>
                       )}
                     </div>
@@ -204,7 +204,7 @@ export default function ProfileSection({
                           opacity: 0.9,
                         }}
                       >
-                        Фидбэк: {item.feedback}
+                        Feedback: {item.feedback}
                       </p>
                     )}
 
@@ -213,7 +213,7 @@ export default function ProfileSection({
                         className="btn btn-primary"
                         onClick={() => openChallengeDetails(item.challenge_id)}
                       >
-                        Открыть челлендж
+                        Open challenge
                       </button>
                     </div>
                   </div>

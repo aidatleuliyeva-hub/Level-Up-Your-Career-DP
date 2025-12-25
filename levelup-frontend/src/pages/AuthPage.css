@@ -16,7 +16,7 @@
     linear-gradient(145deg, #050816, #020617);
 }
 
-/* мягкие «орбиты» на фоне */
+/*  «»   */
 .auth-orbit {
   position: absolute;
   width: 520px;
@@ -59,7 +59,7 @@
   gap: 14px;
 }
 
-/* лёгкий внутренний свет по периметру */
+/*      */
 .auth-card::before {
   content: "";
   position: absolute;
@@ -81,7 +81,7 @@
   gap: 10px;
 }
 
-/* логотип */
+/*  */
 .auth-logo {
   display: flex;
   align-items: center;
@@ -143,7 +143,7 @@
   gap: 10px;
 }
 
-/* табы вход / регистрация */
+/*   /  */
 
 .auth-tabs {
   display: inline-flex;
@@ -182,7 +182,7 @@
   transform: translateY(-1px);
 }
 
-/* форма */
+/*  */
 
 .auth-form {
   padding-top: 10px;
@@ -191,7 +191,7 @@
   gap: 10px;
 }
 
-/* две колонки на десктопе, одна на мобиле */
+/*    ,    */
 .auth-form-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -233,13 +233,13 @@
   transform: translateY(-0.5px);
 }
 
-/* алерты под формой — используем глобальные классы, только чуть ужимаем */
+/*    —   ,    */
 
 .auth-card .alert {
   margin-top: 2px;
 }
 
-/* кнопка сабмита */
+/*   */
 
 .auth-submit-btn {
   width: 100%;

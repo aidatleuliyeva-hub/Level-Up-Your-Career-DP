@@ -15,7 +15,7 @@ export default function OverviewSection({
   const filteredChallenges = useMemo(() => {
     let list = [...challengesForOverview];
 
-    // поиск по заголовку и описанию
+    //     
     const q = search.trim().toLowerCase();
     if (q) {
       list = list.filter((ch) => {
@@ -25,12 +25,12 @@ export default function OverviewSection({
       });
     }
 
-    // фильтр по типу
+    //   
     if (typeFilter !== "all") {
       list = list.filter((ch) => ch.challenge_type === typeFilter);
     }
 
-    // фильтр по сложности
+    //   
     if (difficultyFilter !== "all") {
       list = list.filter((ch) => {
         const d = (ch.difficulty || "").toLowerCase();
@@ -38,7 +38,7 @@ export default function OverviewSection({
       });
     }
 
-    // сортировка
+    // 
     if (sortBy === "reward") {
       list.sort((a, b) => {
         const av = a.reward_amount != null ? Number(a.reward_amount) : 0;
@@ -52,7 +52,7 @@ export default function OverviewSection({
         return bv - av;
       });
     }
-    // sortBy === "newest" — оставляем порядок как пришёл с сервера (у тебя уже ORDER BY created_at DESC)
+    // sortBy === "newest" —       (   ORDER BY created_at DESC)
 
     return list;
   }, [challengesForOverview, search, difficultyFilter, typeFilter, sortBy]);
@@ -61,57 +61,57 @@ export default function OverviewSection({
     <section className="content-section">
       <div className="content-header">
         <div>
-          <h1>Опубликованные челленджи</h1>
+          <h1> </h1>
           <p>
-            Задания от университетов и компаний, доступные для выполнения
-            сейчас. Выберите челлендж, чтобы начать участие.
+                ,   
+            .  ,   .
           </p>
         </div>
         <div className="content-header-meta">
-          {chLoading && <span className="ch-badge">Загружаем...</span>}
+          {chLoading && <span className="ch-badge">...</span>}
           {!chLoading && filteredChallenges.length > 0 && (
             <span className="ch-badge">
-              {filteredChallenges.length} челлендж(ей)
+              {filteredChallenges.length} ()
             </span>
           )}
         </div>
       </div>
 
-      {/* Панель фильтров / поиска / сортировки */}
+      {/*   /  /  */}
       <div className="content-filters">
         <div className="content-filters-row">
           <div className="filter-group">
-            <label className="filter-label">Поиск</label>
+            <label className="filter-label"></label>
             <input
               type="text"
               className="filter-input"
-              placeholder="Найти по названию или описанию…"
+              placeholder="Search by title or description…"
               value={search}
               onChange={(e) => setSearch(e.target.value)}
             />
           </div>
 
           <div className="filter-group">
-            <label className="filter-label">Тип</label>
+            <label className="filter-label"></label>
             <select
               className="filter-select"
               value={typeFilter}
               onChange={(e) => setTypeFilter(e.target.value)}
             >
-              <option value="all">Все</option>
-              <option value="academic">Только academic</option>
-              <option value="company">Только company</option>
+              <option value="all"></option>
+              <option value="academic"> academic</option>
+              <option value="company"> company</option>
             </select>
           </div>
 
           <div className="filter-group">
-            <label className="filter-label">Сложность</label>
+            <label className="filter-label">Difficulty</label>
             <select
               className="filter-select"
               value={difficultyFilter}
               onChange={(e) => setDifficultyFilter(e.target.value)}
             >
-              <option value="all">Любая</option>
+              <option value="all"></option>
               <option value="easy">easy</option>
               <option value="medium">medium</option>
               <option value="hard">hard</option>
@@ -119,15 +119,15 @@ export default function OverviewSection({
           </div>
 
           <div className="filter-group">
-            <label className="filter-label">Сортировать</label>
+            <label className="filter-label"></label>
             <select
               className="filter-select"
               value={sortBy}
               onChange={(e) => setSortBy(e.target.value)}
             >
-              <option value="newest">По новизне</option>
-              <option value="reward">По вознаграждению (€)</option>
-              <option value="credits">По кредитам</option>
+              <option value="newest"> </option>
+              <option value="reward">  (€)</option>
+              <option value="credits"> </option>
             </select>
           </div>
         </div>
@@ -135,7 +135,7 @@ export default function OverviewSection({
 
       {chError && (
         <div className="alert alert-error" style={{ marginTop: 8 }}>
-          Ошибка: {chError}
+          Error: {chError}
         </div>
       )}
 
@@ -146,12 +146,12 @@ export default function OverviewSection({
         difficultyFilter === "all" &&
         typeFilter === "all" && (
           <div className="ch-empty">
-            Пока нет опубликованных челленджей.
+               .
             <br />
             <span style={{ fontSize: 11, opacity: 0.85 }}>
-              Если вы преподаватель или представитель компании — перейдите в
-              раздел <strong>«Создать челлендж»</strong> и добавьте первое
-              задание.
+                    —  
+               <strong>«Create challenge»</strong>   
+              .
             </span>
           </div>
         )}
@@ -161,10 +161,10 @@ export default function OverviewSection({
         !chError &&
         (search || difficultyFilter !== "all" || typeFilter !== "all") && (
           <div className="ch-empty">
-            По выбранным фильтрам ничего не найдено.
+                 .
             <br />
             <span style={{ fontSize: 11, opacity: 0.85 }}>
-              Попробуйте убрать фильтры или изменить запрос.
+                   .
             </span>
           </div>
         )}
@@ -182,17 +182,17 @@ export default function OverviewSection({
             <div className="ch-meta">
               {ch.difficulty && (
                 <span className="ch-pill">
-                  Сложность: {ch.difficulty}
+                  Difficulty: {ch.difficulty}
                 </span>
               )}
               {ch.reward_credits != null && (
                 <span className="ch-pill">
-                  Кредиты: {ch.reward_credits}
+                  Credits: {ch.reward_credits}
                 </span>
               )}
               {ch.reward_amount != null && (
                 <span className="ch-pill">
-                  Вознаграждение: {ch.reward_amount} €
+                  Reward: {ch.reward_amount} €
                 </span>
               )}
             </div>
@@ -201,7 +201,7 @@ export default function OverviewSection({
                 className="btn btn-primary"
                 onClick={() => openChallengeDetails(ch.id)}
               >
-                Подробнее
+                
               </button>
             </div>
           </div>

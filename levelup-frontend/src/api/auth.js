@@ -9,7 +9,7 @@ async function request(path, options = {}) {
   try {
     data = await res.json();
   } catch {
-    // может быть пустой body
+    //    body
   }
 
   if (!res.ok) {
@@ -28,7 +28,7 @@ export function registerUser({ email, password, fullName }) {
       email,
       password,
       full_name: fullName,
-      // role больше не отправляем
+      // role   
     }),
   });
 }
@@ -61,7 +61,7 @@ export function createChallenge(token, payload) {
   });
 }
 
-// НОВОЕ: детальный просмотр челленджа
+// :   
 export function getChallenge(token, id) {
   return request(`/challenges/${id}`, {
     method: "GET",
@@ -71,7 +71,7 @@ export function getChallenge(token, id) {
   });
 }
 
-// НОВОЕ: студент начинает челлендж
+// :   
 export function startChallenge(token, id) {
   return request(`/challenges/${id}/start`, {
     method: "POST",
@@ -129,7 +129,7 @@ export async function getMicrotasks(token) {
   });
 
   if (!res.ok) {
-    throw new Error("Не удалось загрузить микрозадачи");
+    throw new Error("Failed to load microtasks");
   }
 
   return res.json();
@@ -147,7 +147,7 @@ export async function applyMicrotask(token, microtaskId, payload) {
 
   if (!res.ok) {
     const data = await res.json().catch(() => null);
-    throw new Error(data?.error || "Не удалось отправить отклик");
+    throw new Error(data?.error || "Failed to submit response");
   }
 
   return res.json();
@@ -161,7 +161,7 @@ export async function getMyMicrotasks(token) {
   });
 
   if (!res.ok) {
-    throw new Error("Не удалось загрузить ваши микрозадачи");
+    throw new Error("Failed to load your microtasks");
   }
 
   return res.json();
@@ -175,7 +175,7 @@ export async function getMicrotaskApplications(token, microtaskId) {
   });
 
   if (!res.ok) {
-    throw new Error("Не удалось загрузить отклики по микрозадаче");
+    throw new Error("Failed to load responses for this microtask");
   }
 
   return res.json();
@@ -201,7 +201,7 @@ export async function updateMicrotaskApplicationStatus(token, applicationId, sta
     } catch {
       // ignore
     }
-    throw new Error(data?.error || "Не удалось обновить статус отклика");
+    throw new Error(data?.error || "Failed to update response status");
   }
 
   return res.json();
@@ -243,7 +243,7 @@ export async function submitMicrotaskResult(token, applicationId, payload) {
   );
 
   if (!res.ok) {
-    let msg = "Не удалось отправить результат микрозадачи";
+    let msg = "Failed to submit microtask result";
     try {
       const data = await res.json();
       msg = data.error || msg;
@@ -264,7 +264,7 @@ export async function getLeaderboard(token) {
   return res.json();
 }
 
-// микрозадачи, созданные текущим пользователем (teacher/company/admin)
+// ,    (teacher/company/admin)
 export async function getMyCreatedMicrotasks(token) {
   const res = await fetch(`${API_URL}/me/microtasks/created`, {
     method: "GET",
@@ -281,7 +281,7 @@ export async function getMyCreatedMicrotasks(token) {
   return res.json();
 }
 
-// смена статуса микрозадачи: open / closed / archived
+//   : open / closed / archived
 export async function updateMicrotaskStatus(token, microtaskId, status) {
   const res = await fetch(`${API_URL}/microtasks/${microtaskId}/status`, {
     method: "POST",

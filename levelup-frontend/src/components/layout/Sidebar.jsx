@@ -10,10 +10,10 @@ export default function Sidebar() {
   const [collapsed, setCollapsed] = useState(false);
 
   const links = [
-    { id: "overview", label: "Челленджи", icon: "📌" },
-    { id: "microtasks", label: "Микрозадачи", icon: "⚡" },
-    { id: "my-challenges", label: "Мои челленджи", icon: "🎒" },
-    { id: "profile", label: "Профиль", icon: "👤" },
+    { id: "overview", label: "Challenges", icon: "📌" },
+    { id: "microtasks", label: "Microtasks", icon: "⚡" },
+    { id: "my-challenges", label: "My challenges", icon: "🎒" },
+    { id: "profile", label: "Profile", icon: "👤" },
   ];
 
   return (
@@ -50,7 +50,7 @@ export default function Sidebar() {
             <div className="user-role">{user.role}</div>
 
             <button className="logout-btn" onClick={logout}>
-              Выйти
+              Sign out
             </button>
           </div>
         )}

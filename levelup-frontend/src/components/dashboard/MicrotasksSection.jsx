@@ -38,22 +38,22 @@ export default function MicrotasksSection({
   mtStatusError,
   loadApplicationsForMicrotask,
   handleUpdateApplicationStatus,
-  // сеттеры для сброса сообщений
+  //    
   setApplyError,
   setApplySuccess,
   setResultError,
   setResultSuccess,
 }) {
-  // ---- локальное состояние для модалки управления откликом (teacher/company/admin) ----
+  // ----       (teacher/company/admin) ----
   const [selectedAppForManage, setSelectedAppForManage] = useState(null);
 
-  // Найти микрозадачу для которой открыт отклик (по ID)
+  //       ( ID)
   const microtaskForApplyModal = useMemo(
     () => microtasks.find((mt) => mt.id === applyMicrotaskId) || null,
     [microtasks, applyMicrotaskId]
   );
 
-  // Найти микрозадачу/заявку для модалки "Сдать результат"
+  //  /   "Submit result"
   const applicationForResultModal = useMemo(
     () =>
       myMicrotasks.find((item) => item.application_id === resultForAppId) ||
@@ -61,7 +61,7 @@ export default function MicrotasksSection({
     [myMicrotasks, resultForAppId]
   );
 
-  // Закрыть модалку "Откликнуться"
+  // Close  "Respond"
   const closeApplyModal = () => {
     setApplyMicrotaskId(null);
     setApplicationText("");
@@ -69,7 +69,7 @@ export default function MicrotasksSection({
     if (setApplySuccess) setApplySuccess(null);
   };
 
-  // Закрыть модалку "Сдать результат"
+  // Close  "Submit result"
   const closeResultModal = () => {
     setResultForAppId(null);
     setResultText("");
@@ -78,7 +78,7 @@ export default function MicrotasksSection({
     if (setResultSuccess) setResultSuccess(null);
   };
 
-  // Закрыть модалку управления откликом (teacher/company/admin)
+  // Close    (teacher/company/admin)
   const closeManageAppModal = () => {
     setSelectedAppForManage(null);
   };
@@ -89,27 +89,27 @@ export default function MicrotasksSection({
     <section className="content-section">
       <div className="content-header">
         <div>
-          <h1>Микрозадачи</h1>
+          <h1>Microtasks</h1>
           <p>
-            Небольшие задания от компаний и преподавателей. Берёшь — делаешь —
-            получаешь опыт и вознаграждение.
+                 .  —  —
+               .
           </p>
         </div>
         <div className="content-header-meta">
-          {mtLoading && <span className="ch-badge">Загружаем...</span>}
+          {mtLoading && <span className="ch-badge">...</span>}
           {!mtLoading && microtasks.length > 0 && (
             <span className="ch-badge">
-              {microtasks.length} микрозадач(и)
+              {microtasks.length} ()
             </span>
           )}
         </div>
       </div>
 
-      {mtError && <div className="alert alert-error">Ошибка: {mtError}</div>}
+      {mtError && <div className="alert alert-error">Error: {mtError}</div>}
 
       {!mtLoading && microtasks.length === 0 && !mtError && (
         <div className="ch-empty">
-          Пока нет активных микрозадач. Позже здесь будут задачи от компаний.
+             .      .
         </div>
       )}
 
@@ -133,16 +133,16 @@ export default function MicrotasksSection({
 
               <div className="ch-meta">
                 {mt.difficulty && (
-                  <span className="ch-pill">Сложность: {mt.difficulty}</span>
+                  <span className="ch-pill">Difficulty: {mt.difficulty}</span>
                 )}
                 {mt.reward_credits != null && (
                   <span className="ch-pill">
-                    Кредиты: {mt.reward_credits}
+                    Credits: {mt.reward_credits}
                   </span>
                 )}
                 {mt.reward_amount != null && (
                   <span className="ch-pill">
-                    Вознаграждение: {mt.reward_amount} €
+                    Reward: {mt.reward_amount} €
                   </span>
                 )}
               </div>
@@ -154,7 +154,7 @@ export default function MicrotasksSection({
                       className="ch-desc"
                       style={{ marginTop: 6, fontSize: 12 }}
                     >
-                      Вы уже откликнулись на эту микрозадачу. Статус:{" "}
+                           . :{" "}
                       <strong>{myApp.application_status}</strong>.
                     </p>
                   )}
@@ -170,7 +170,7 @@ export default function MicrotasksSection({
                           if (setApplySuccess) setApplySuccess(null);
                         }}
                       >
-                        Откликнуться
+                        Respond
                       </button>
                     </div>
                   )}
@@ -186,7 +186,7 @@ export default function MicrotasksSection({
                       loadApplicationsForMicrotask(mt.id);
                     }}
                   >
-                    Отклики студентов
+                     
                   </button>
                 </div>
               )}
@@ -195,22 +195,22 @@ export default function MicrotasksSection({
         })}
       </div>
 
-      {/* --- Мои микрозадачи (как студент) --- */}
+      {/* --- My microtasks ( ) --- */}
       {isStudent && (
         <div className="challenges-section">
-          <h3 style={{ marginTop: 18, marginBottom: 6 }}>Мои микрозадачи</h3>
+          <h3 style={{ marginTop: 18, marginBottom: 6 }}>My microtasks</h3>
 
           {myMtLoading && (
-            <div className="ch-empty">Загружаем ваши отклики...</div>
+            <div className="ch-empty">  ...</div>
           )}
 
           {myMtError && (
-            <div className="alert alert-error">Ошибка: {myMtError}</div>
+            <div className="alert alert-error">Error: {myMtError}</div>
           )}
 
           {!myMtLoading && !myMtError && myMicrotasks.length === 0 && (
             <div className="ch-empty">
-              Вы ещё не откликались на микрозадачи.
+                   .
             </div>
           )}
 
@@ -222,7 +222,7 @@ export default function MicrotasksSection({
                     <div>
                       <h3>{item.title}</h3>
                       <p className="ch-desc">
-                        Статус отклика: {item.application_status}
+                         : {item.application_status}
                       </p>
                     </div>
                   </div>
@@ -230,17 +230,17 @@ export default function MicrotasksSection({
                   <div className="ch-meta">
                     {item.difficulty && (
                       <span className="ch-pill">
-                        Сложность: {item.difficulty}
+                        Difficulty: {item.difficulty}
                       </span>
                     )}
                     {item.reward_credits != null && (
                       <span className="ch-pill">
-                        Кредиты: {item.reward_credits}
+                        Credits: {item.reward_credits}
                       </span>
                     )}
                     {item.reward_amount != null && (
                       <span className="ch-pill">
-                        Вознаграждение: {item.reward_amount} €
+                        Reward: {item.reward_amount} €
                       </span>
                     )}
                   </div>
@@ -254,7 +254,7 @@ export default function MicrotasksSection({
                         opacity: 0.9,
                       }}
                     >
-                      Ваш отклик: {item.application_text}
+                       : {item.application_text}
                     </p>
                   )}
 
@@ -267,7 +267,7 @@ export default function MicrotasksSection({
                         opacity: 0.9,
                       }}
                     >
-                      <strong>Ваш результат:</strong>{" "}
+                      <strong> :</strong>{" "}
                       {item.result_text && <span>{item.result_text} </span>}
                       {item.result_link && (
                         <a
@@ -276,7 +276,7 @@ export default function MicrotasksSection({
                           rel="noreferrer"
                           style={{ color: "#bfdbfe" }}
                         >
-                          открыть ссылку
+                           
                         </a>
                       )}
                     </p>
@@ -295,7 +295,7 @@ export default function MicrotasksSection({
                             if (setResultSuccess) setResultSuccess(null);
                           }}
                         >
-                          Сдать результат
+                          Submit result
                         </button>
                       )}
                     </div>
@@ -307,7 +307,7 @@ export default function MicrotasksSection({
         </div>
       )}
 
-      {/* --- Панель откликов для teacher/company/admin --- */}
+      {/* ---    teacher/company/admin --- */}
       {isTeacherSide && selectedMicrotaskForApps && (
         <div
           style={{
@@ -316,25 +316,25 @@ export default function MicrotasksSection({
             borderTop: "1px solid rgba(148,163,184,0.35)",
           }}
         >
-          <h3>Отклики на микрозадачу: {selectedMicrotaskForApps.title}</h3>
+          <h3>  : {selectedMicrotaskForApps.title}</h3>
 
           {mtAppsLoading && (
-            <div className="ch-empty">Загружаем отклики...</div>
+            <div className="ch-empty"> ...</div>
           )}
 
           {mtAppsError && (
-            <div className="alert alert-error">Ошибка: {mtAppsError}</div>
+            <div className="alert alert-error">Error: {mtAppsError}</div>
           )}
 
           {mtStatusError && (
             <div className="alert alert-error">
-              Ошибка статуса: {mtStatusError}
+              Error : {mtStatusError}
             </div>
           )}
 
           {!mtAppsLoading && !mtAppsError && mtApps.length === 0 && (
             <div className="ch-empty">
-              Пока нет откликов на эту микрозадачу.
+                   .
             </div>
           )}
 
@@ -346,7 +346,7 @@ export default function MicrotasksSection({
                     <div>
                       <h3>{app.student_full_name}</h3>
                       <p className="ch-desc">
-                        {app.student_email} · статус: {app.status}
+                        {app.student_email} · : {app.status}
                       </p>
                     </div>
                   </div>
@@ -356,7 +356,7 @@ export default function MicrotasksSection({
                       className="ch-desc"
                       style={{ marginTop: 6, fontSize: 13 }}
                     >
-                      Отклик: {app.application_text}
+                      : {app.application_text}
                     </p>
                   )}
 
@@ -365,7 +365,7 @@ export default function MicrotasksSection({
                       className="ch-desc"
                       style={{ marginTop: 6, fontSize: 12, opacity: 0.9 }}
                     >
-                      <strong>Результат студента:</strong>{" "}
+                      <strong> :</strong>{" "}
                       {app.result_text && <span>{app.result_text} </span>}
                       {app.result_link && (
                         <a
@@ -374,7 +374,7 @@ export default function MicrotasksSection({
                           rel="noreferrer"
                           style={{ color: "#bfdbfe" }}
                         >
-                          открыть ссылку
+                           
                         </a>
                       )}
                     </p>
@@ -385,7 +385,7 @@ export default function MicrotasksSection({
                       className="btn btn-primary"
                       onClick={() => setSelectedAppForManage(app)}
                     >
-                      Управлять откликом
+                       
                     </button>
                   </div>
                 </div>
@@ -395,20 +395,20 @@ export default function MicrotasksSection({
         </div>
       )}
 
-      {/* === МОДАЛКА: отклик на микрозадачу (student) === */}
+      {/* === :    (student) === */}
       <Modal
         open={!!applyMicrotaskId}
         onClose={closeApplyModal}
         title={
           microtaskForApplyModal
-            ? `Отклик на: ${microtaskForApplyModal.title}`
-            : "Отклик на микрозадачу"
+            ? ` : ${microtaskForApplyModal.title}`
+            : "Response to microtask"
         }
         width={520}
       >
         <form className="auth-form" onSubmit={handleApplySubmit}>
           <div className="form-group">
-            <label>Коротко о том, почему вы подходите</label>
+            <label>  ,   </label>
             <textarea
               rows={4}
               value={applicationText}
@@ -428,7 +428,7 @@ export default function MicrotasksSection({
           </div>
 
           {applyError && (
-            <div className="alert alert-error">Ошибка: {applyError}</div>
+            <div className="alert alert-error">Error: {applyError}</div>
           )}
 
           {applySuccess && (
@@ -457,33 +457,33 @@ export default function MicrotasksSection({
               className="btn btn-ghost"
               onClick={closeApplyModal}
             >
-              Отмена
+              
             </button>
             <button
               type="submit"
               className="btn btn-primary"
               disabled={applyLoading}
             >
-              {applyLoading ? "Отправляем..." : "Отправить отклик"}
+              {applyLoading ? "Submitting..." : "Submit response"}
             </button>
           </div>
         </form>
       </Modal>
 
-      {/* === МОДАЛКА: сдача результата по микрозадаче (student) === */}
+      {/* === :     (student) === */}
       <Modal
         open={!!resultForAppId}
         onClose={closeResultModal}
         title={
           applicationForResultModal
-            ? `Результат по: ${applicationForResultModal.title}`
-            : "Сдать результат"
+            ? ` : ${applicationForResultModal.title}`
+            : "Submit result"
         }
         width={520}
       >
         <form className="auth-form" onSubmit={handleSubmitMicrotaskResult}>
           <div className="form-group">
-            <label>Что вы сделали (кратко)</label>
+            <label>   ()</label>
             <textarea
               rows={4}
               value={resultText}
@@ -503,7 +503,7 @@ export default function MicrotasksSection({
           </div>
 
           <div className="form-group">
-            <label>Ссылка на результат (GitHub / Figma / Drive)</label>
+            <label>   (GitHub / Figma / Drive)</label>
             <input
               type="text"
               value={resultLink}
@@ -512,7 +512,7 @@ export default function MicrotasksSection({
           </div>
 
           {resultError && (
-            <div className="alert alert-error">Ошибка: {resultError}</div>
+            <div className="alert alert-error">Error: {resultError}</div>
           )}
 
           {resultSuccess && (
@@ -541,34 +541,34 @@ export default function MicrotasksSection({
               className="btn btn-ghost"
               onClick={closeResultModal}
             >
-              Отмена
+              
             </button>
             <button
               type="submit"
               className="btn btn-primary"
               disabled={resultLoading}
             >
-              {resultLoading ? "Отправляем..." : "Отправить результат"}
+              {resultLoading ? "Submitting..." : "Submit result"}
             </button>
           </div>
         </form>
       </Modal>
 
-      {/* === МОДАЛКА: управление откликом (teacher/company/admin) === */}
+      {/* === :   (teacher/company/admin) === */}
       <Modal
         open={!!selectedAppForManage}
         onClose={closeManageAppModal}
         title={
           selectedAppForManage
-            ? `Отклик: ${selectedAppForManage.student_full_name}`
-            : "Отклик студента"
+            ? `: ${selectedAppForManage.student_full_name}`
+            : "Student response"
         }
         width={540}
       >
         {selectedAppForManage && (
           <>
             <p className="ch-desc" style={{ marginBottom: 10 }}>
-              {selectedAppForManage.student_email} · статус:{" "}
+              {selectedAppForManage.student_email} · :{" "}
               <strong>{selectedAppForManage.status}</strong>
             </p>
 
@@ -583,7 +583,7 @@ export default function MicrotasksSection({
                     marginBottom: 4,
                   }}
                 >
-                  Отклик
+                  
                 </div>
                 <p
                   className="ch-desc"
@@ -606,7 +606,7 @@ export default function MicrotasksSection({
                     marginBottom: 4,
                   }}
                 >
-                  Результат студента
+                   
                 </div>
                 <p
                   className="ch-desc"
@@ -622,7 +622,7 @@ export default function MicrotasksSection({
                       rel="noreferrer"
                       style={{ color: "#bfdbfe" }}
                     >
-                      открыть ссылку
+                       
                     </a>
                   )}
                 </p>
@@ -631,7 +631,7 @@ export default function MicrotasksSection({
 
             {mtStatusError && (
               <div className="alert alert-error" style={{ marginBottom: 10 }}>
-                Ошибка статуса: {mtStatusError}
+                Error : {mtStatusError}
               </div>
             )}
 
@@ -656,8 +656,8 @@ export default function MicrotasksSection({
                 }
               >
                 {mtStatusLoadingId === selectedAppForManage.application_id
-                  ? "Сохраняем..."
-                  : "Принять"}
+                  ? "Saving..."
+                  : "Accept"}
               </button>
 
               <button
@@ -672,7 +672,7 @@ export default function MicrotasksSection({
                   )
                 }
               >
-                Отклонить
+                
               </button>
 
               <button
@@ -687,7 +687,7 @@ export default function MicrotasksSection({
                   )
                 }
               >
-                Отметить выполненной
+                 
               </button>
             </div>
           </>
