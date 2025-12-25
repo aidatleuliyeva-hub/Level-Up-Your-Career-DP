@@ -65,7 +65,7 @@ export default function AuthPage() {
   };
 
   if (initializing) {
-    return <div className="splash-screen">Загружаем...</div>;
+    return <div className="splash-screen">Loading...</div>;
   }
 
   return (
@@ -81,15 +81,15 @@ export default function AuthPage() {
             <div className="logo-text">
               <div className="logo-title">Level Up Your Career</div>
               <div className="logo-subtitle">
-                Челленджи, реальные задачи и опыт — ещё во время учебы
-              </div>
+  Challenges, real-world tasks, and hands-on experience — while still studying
+</div>
             </div>
           </div>
 
           <div className="auth-tagline">
-            Платформа челленджей и микрозадач, которая помогает студентам
-            собрать портфолио ещё во время университета.
-          </div>
+  A challenge and micro-task platform that helps students
+  build their portfolio while still at university.
+</div>
         </div>
 
         <div className="auth-card-body">
@@ -101,7 +101,7 @@ export default function AuthPage() {
               }`}
               onClick={() => setMode("login")}
             >
-              Вход
+              Sign in
             </button>
             <button
               type="button"
@@ -110,7 +110,7 @@ export default function AuthPage() {
               }`}
               onClick={() => setMode("register")}
             >
-              Регистрация
+              Sign up
             </button>
           </div>
 
@@ -128,7 +128,7 @@ export default function AuthPage() {
                 </div>
 
                 <div className="form-group">
-                  <label>Пароль</label>
+                  <label>Password</label>
                   <input
                     type="password"
                     value={loginPassword}
@@ -139,7 +139,7 @@ export default function AuthPage() {
               </div>
 
               {loginError && (
-                <div className="alert alert-error">Ошибка: {loginError}</div>
+                <div className="alert alert-error">Error: {loginError}</div>
               )}
 
               <button
@@ -147,7 +147,7 @@ export default function AuthPage() {
                 className="btn btn-primary auth-submit-btn"
                 disabled={loading}
               >
-                {loading ? "Входим..." : "Войти"}
+                {loading ? "Signing in..." : "Sign in"}
               </button>
             </form>
           ) : (
@@ -164,7 +164,7 @@ export default function AuthPage() {
                 </div>
 
                 <div className="form-group">
-                  <label>Пароль</label>
+                  <label>Password</label>
                   <input
                     type="password"
                     value={regPassword}
@@ -174,7 +174,7 @@ export default function AuthPage() {
                 </div>
 
                 <div className="form-group">
-                  <label>Полное имя</label>
+                  <label>Full name</label>
                   <input
                     type="text"
                     value={regFullName}
@@ -184,7 +184,7 @@ export default function AuthPage() {
                 </div>
 
                 <div className="form-group">
-                  <label>Роль</label>
+                  <label>Role</label>
                   <select
                     value={regRole}
                     onChange={(e) => setRegRole(e.target.value)}
@@ -198,7 +198,7 @@ export default function AuthPage() {
               </div>
 
               {regError && (
-                <div className="alert alert-error">Ошибка: {regError}</div>
+                <div className="alert alert-error">Error: {regError}</div>
               )}
 
               <button
@@ -206,7 +206,7 @@ export default function AuthPage() {
                 className="btn btn-primary auth-submit-btn"
                 disabled={loading}
               >
-                {loading ? "Создаём..." : "Создать аккаунт"}
+                {loading ? "Creating..." : "Create account"}
               </button>
             </form>
           )}
@@ -214,11 +214,11 @@ export default function AuthPage() {
 
         <div className="auth-card-footer">
           <div className="auth-footer-note">
-            Этот прототип подключен к Go + PostgreSQL API на{" "}
+            This prorotype is connected to the Go + PostgreSQL API at{" "}
             <code>localhost:8080</code>
           </div>
           <div className="auth-footer-meta">
-            <span>Студент · Преподаватель · Компания · Admin</span>
+            <span>Student · Teacher · Company · Admin</span>
           </div>
         </div>
       </div>
