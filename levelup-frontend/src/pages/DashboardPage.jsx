@@ -1,33 +1,6 @@
 // // src/pages/DashboardPage.jsx
-// import React, { useEffect, useState } from "react";
-// import { useNavigate } from "react-router-dom";
-// import {
-//   getChallenges,
-//   createChallenge,
-//   getChallenge,
-//   startChallenge,
-//   getMyChallenges,
-//   submitChallenge,
-//   getChallengeSubmissions,
-//   reviewSubmission,
-//   getMicrotasks,
-//   applyMicrotask,
-//   getMyMicrotasks,
-//   getMicrotaskApplications,
-//   updateMicrotaskApplicationStatus,
-//   createMicrotask,
-//   submitMicrotaskResult,
-// } from "../api/auth";
-
-// import OverviewSection from "../components/dashboard/OverviewSection";
-// import ProfileSection from "../components/dashboard/ProfileSection";
-// import MyChallengesSection from "../components/dashboard/MyChallengesSection";
-// import CreateChallengeSection from "../components/dashboard/CreateChallengeSection";
-// import CreateMicrotaskSection from "../components/dashboard/CreateMicrotaskSection";
-// import MicrotasksSection from "../components/dashboard/MicrotasksSection";
-// import ChallengeDetailsSection from "../components/dashboard/ChallengeDetailsSection";
-// import DashboardLayout from "../components/layout/DashboardLayout";
-
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 // export default function DashboardPage() {
 //   const navigate = useNavigate();
 //   const [user, setUser] = useState(null);
