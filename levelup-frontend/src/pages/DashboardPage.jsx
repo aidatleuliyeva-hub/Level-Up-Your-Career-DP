@@ -821,8 +821,6 @@ import { useNavigate } from "react-router-dom";
 
 
 // src/pages/DashboardPage.jsx
-import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import {
   getChallenges,
   createChallenge,
