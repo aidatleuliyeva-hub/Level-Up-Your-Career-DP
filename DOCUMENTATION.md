@@ -13,6 +13,7 @@ Components:
 - **Redis Queue:** asynchronous job queue between API and Worker.
 - **Worker Service (Go):** consumes queued jobs and performs heavier processing; updates results in PostgreSQL.
 - **PostgreSQL:** primary persistent storage.
+The API exposes REST endpoints secured with JWT authentication.
 
 High-level flow:
 ```
@@ -40,3 +41,8 @@ Frontend -> API (Go) -> PostgreSQL
 ## 5. Testing
 - Manual test cases are listed in `TEST_CASES.md`.
 - Automated unit tests (basic) exist in `levelup-backend/internal/config/config_test.go`.
+
+## 6. Limitations 
+- No Docker Compose yet
+- Limited automated test coverage
+- Manual DB migration step required

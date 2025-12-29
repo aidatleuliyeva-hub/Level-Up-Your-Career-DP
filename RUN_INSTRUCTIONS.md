@@ -3,7 +3,7 @@
 ## 1. Prerequisites
 Install:
 - Go (>= 1.20 recommended)
-- Node.js ≥ v24.11.1 + npm ≥ 11.6.2
+- Node.js ≥ 18 + npm ≥ 11.6.2
 - PostgreSQL ≥ 13
 - Redis ≥ 6
 

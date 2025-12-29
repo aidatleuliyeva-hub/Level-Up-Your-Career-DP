@@ -79,7 +79,7 @@ They can be executed either using the frontend UI or by sending HTTP requests (e
 **Goal:** Verify API enqueues a background job to Redis.  
 **Steps:**
 1. Send a request that creates a background job (e.g., “create microtask/job” endpoint)
-2. Observe Redis list/key for the queue (optional)
+2. Observe Redis queue key (if Redis CLI is available)
 **Expected result:**
 - API responds successfully (e.g., `201`)
 - A job ID is pushed to the Redis queue key
@@ -118,3 +118,6 @@ Run them with:
 cd levelup-backend
 go test ./...
 ```
+## Notes
+These test cases focus on validating system behavior and service interaction
+rather than exhaustive UI testing.
